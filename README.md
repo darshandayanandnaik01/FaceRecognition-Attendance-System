@@ -13,7 +13,11 @@ A powerful AI-based Attendance Monitoring System that uses DeepFace (FaceNet mod
 ✔ Easy to add new users (just upload images)
 ✔ Clean, modular, scalable codebase
 
-📂 Project Structure
+
+## 📂 Project Structure
+
+```
+
 FaceAttendance/
 │── Images/
 │   └── Darshan/
@@ -26,6 +30,8 @@ FaceAttendance/
 │── requirements.txt
 │── venv/
 │── README.md
+
+```
 
 
 🛠️ Tech Stack
