@@ -1,25 +1,19 @@
-# Face Recognition Attendance System
+🚀 Face Recognition Attendance System
+Real-Time Face Detection • Deep Learning • Automated Attendance
+<p align="center"> <img src="https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge" /> <img src="https://img.shields.io/badge/OpenCV-Live%20Detection-green?style=for-the-badge" /> <img src="https://img.shields.io/badge/DeepFace-FaceNet-red?style=for-the-badge" /> <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" /> </p>
 
-A real-time attendance system built using **Python**, **OpenCV**, and **DeepFace**.  
-This project detects faces through a webcam, recognizes the person, and automatically records attendance into a CSV file.
+A powerful AI-based Attendance Monitoring System that uses DeepFace (FaceNet model) to recognize faces in real-time and log attendance automatically with timestamps.
 
----
+✨ Key Features
 
-## 🚀 Features
+✔ Real-time webcam-based face detection
+✔ High-accuracy recognition using Facenet embeddings
+✔ Automatic attendance recording (Name, Date, Time)
+✔ Prevents duplicate entries
+✔ Easy to add new users (just upload images)
+✔ Clean, modular, scalable codebase
 
-- Real-time face detection  
-- High-accuracy face recognition  
-- Automatic attendance marking  
-- Duplicate entry protection  
-- Simple folder-based dataset  
-- Easy to extend with more users  
-
----
-
-## 📂 Project Structure
-
-```
-
+📂 Project Structure
 FaceAttendance/
 │── Images/
 │   └── Darshan/
@@ -33,199 +27,133 @@ FaceAttendance/
 │── venv/
 │── README.md
 
-```
+🛠️ Tech Stack
+Component	Technology
+Face Detection	DeepFace + RetinaFace
+Face Recognition	Facenet Embeddings
+Programming Language	Python 3.10
+Computer Vision	OpenCV
+Data Storage	CSV
+ML Libraries	TensorFlow, NumPy, Pandas
+📸 Add User Images
 
-⚠️ **Folder names must NOT contain spaces.**  
-Example: `Darshan`, `Rahul`, `ManjuKR`, `OmkarReddy`.
+To register a person:
 
----
+Images/<PersonName>/1.jpg
 
-## 🧠 Requirements
 
-Install all project dependencies using:
+Important:
 
-```
+Folder names must NOT contain spaces
 
-pip install -r requirements.txt
-
-```
-
-Or manually:
-
-```
-
-pip install deepface opencv-python numpy pandas tf-keras
-
-```
-
----
-
-## 🏗️ Setup Instructions
-
-### 📌 Step 1 — Activate Virtual Environment
-
-Go to project folder:
-
-```
-
-cd C:\Users\Darshan\FaceAttendance
-
-```
-
-Activate venv (PowerShell):
-
-```
-
-.\venv\Scripts\Activate.ps1
-
-```
-
-Or CMD:
-
-```
-
-venv\Scripts\activate
-
-```
-
----
-
-## 📸 Step 2 — Add Face Images
-
-Inside the **Images** folder:
-
-- Create one folder per person  
-- Add at least one clear front face image  
-- Image name must be `1.jpg` (or similar)  
+Image must clearly show the face
 
 Example:
 
-```
-
 Images/Darshan/1.jpg
 
-```
 
----
+Add more users the same way.
 
-## 🧬 Step 3 — Encode Faces
+⚙️ Setup Instructions
+1️⃣ Activate Virtual Environment
+cd C:\Users\Darshan\FaceAttendance
+.\venv\Scripts\Activate.ps1
 
-Run the script to generate `encodings.pkl`:
+2️⃣ Install Dependencies
+pip install -r requirements.txt
 
-```
 
+Or manually:
+
+pip install deepface opencv-python numpy pandas tf-keras
+
+3️⃣ Generate Face Encodings
 python encode_faces.py
 
-```
 
-You should see:
-
-```
+Expected:
 
 Face encoding completed!
 
-```
 
----
+This creates:
 
-## 🎥 Step 4 — Run Attendance System
+encodings.pkl
 
-Start webcam recognition:
-
-```
-
+4️⃣ Start Attendance System
 python main.py
 
-```
 
-Press **q** anytime to quit.
+📌 Press Q to quit.
 
-If recognized:
+📄 Attendance Output
 
-```
-
-Recognition: Darshan
-Attendance written: Darshan
-
-```
-
----
-
-## 📄 Attendance Output
-
-Attendance is stored in:
-
-```
+All attendance entries are stored in:
 
 attendance.csv
 
-```
 
 Format:
-
-```
 
 Name,Date,Time
 Darshan,2025-11-15,14:22:10
 
-```
+🧠 How It Works (Flow)
 
----
+Images → Encoded into 128-D embeddings (Facenet)
 
-## ⚙️ How the System Works
+Webcam feed → Face detected using RetinaFace
 
-1. **DeepFace** extracts a 128D embedding using Facenet  
-2. Webcam captures live frames  
-3. Embedding similarity is computed  
-4. If similarity > threshold → recognized  
-5. Attendance is written once per person  
+Embedding extracted from live frame
 
----
+Compare similarity with stored encodings
 
-## 🛠️ Troubleshooting
+If score > threshold → recognized
 
-### ❌ Face not detected
-- Use bright, clear face images  
-- No mask, cap, or side-angle photos  
+Attendance logged in CSV
 
-### ❌ Wrong person detected
-Increase threshold in `main.py`:
+🛠️ Troubleshooting
+❌ Face not detected
 
-```
+Ensure good lighting
+
+Use a clear, front-facing photo
+
+Avoid blur, side angles, masks
+
+❌ Wrong person recognized
+
+Increase matching threshold:
+
+In main.py, modify:
 
 if best_similarity > 0.65:
 
-```
 
-Try values: `0.67` or `0.70`
+Try: 0.67 / 0.70 / 0.75
 
-### ❌ Attendance not updating
-Make sure file path is correct:
+❌ Attendance not updating
 
-```
+Be sure path is correct:
 
 C:\Users\Darshan\FaceAttendance\attendance.csv
 
-```
+📌 Future Enhancements
 
----
+Web dashboard (Streamlit / Flask)
 
-## 🎉 Project Ready!
+Live face registration
 
-You now have a fully working **Face Recognition Attendance System**.
+Cloud sync (Firebase / MongoDB)
 
-If you want:
-- A one-click `.bat` launcher  
-- A GUI version  
-- A mobile app version  
-- A database upgrade  
+Mobile app integration
 
-Just tell me — I’ll build it for you.
+Email/SMS notifications
 
----
+Accuracy boost using ArcFace
 
-## 👤 Author
+👤 Author
 
-**Darshan Naik**  
-– Engineering Final Year
-
+Darshan Naik
+Full Stack / ML Engineer
