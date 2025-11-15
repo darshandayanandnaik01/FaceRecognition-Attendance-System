@@ -27,6 +27,7 @@ FaceAttendance/
 │── venv/
 │── README.md
 
+
 🛠️ Tech Stack
 Component	Technology
 Face Detection	DeepFace + RetinaFace
